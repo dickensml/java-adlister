@@ -6,7 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello-world")
+@WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello")
+
 public class HelloWorldServlet extends HttpServlet {
 
     int pageViews = 0;
@@ -15,7 +16,16 @@ public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         pageViews += 1;
         response.setContentType("text/html");
-        response.getWriter().println("<h1>Hello, World!</h1>");
+        PrintWriter out = response.getWriter();
+        String name = request.getParameter("name");
+        if (name != null) {
+            out.println("<h2>Hello, " + name + "!</h2>");
+        } else{
+            out.println("<h2>Hello World!</h2>");
+        }
+        response.getWriter().println("<h2>Hello, World!</h2" +
+                ">");
+
         response.getWriter().println("<h3>View Count: " + pageViews + "</h3>");
     }
 
