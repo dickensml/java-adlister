@@ -9,11 +9,14 @@ import java.io.PrintWriter;
 @WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello-world")
 public class HelloWorldServlet extends HttpServlet {
 
+    int pageViews = 0;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        pageViews += 1;
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h1>Hello, World!</h1>");
+        response.getWriter().println("<h1>Hello, World!</h1>");
+        response.getWriter().println("<h3>View Count: " + pageViews + "</h3>");
     }
 
 }
