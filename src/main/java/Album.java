@@ -12,8 +12,6 @@ public class Album implements Serializable {
 
     public Album() {  }
 
-
-
     // getters and setters
 
     public String getArtist() {
@@ -40,11 +38,11 @@ public class Album implements Serializable {
         this.releaseDate = releaseDate;
     }
 
-    public float getSales() {
+    public double getSales() {
         return sales;
     }
 
-    public void setSales(float sales) {
+    public void setSales(double sales) {
         this.sales = sales;
     }
 
