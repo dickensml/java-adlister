@@ -8,7 +8,7 @@
 
 <body>
 
-<form method="post" action="/pickcolor">
+<form method="post" action="/pick-color.jsp">
   <input type="color" name="color"/>
   <button>Submit</button>
 </form>
