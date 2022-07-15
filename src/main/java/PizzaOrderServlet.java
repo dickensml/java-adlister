@@ -14,20 +14,24 @@ import java.util.ArrayList;
 
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String crust = request.getParameter("crust");
-        String sauce = request.getParameter("sauce");
-        String size = request.getParameter("size");
-        String address = request.getParameter("address");
-        String toppings = request.getParameter("toppings");
-
             RequestDispatcher view = request.getRequestDispatcher("/pizza-order.jsp");
             view.forward(request, response);
+        }
 
+        @Override
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+            String crust = request.getParameter("crust");
+            String sauce = request.getParameter("sauce");
+            String size = request.getParameter("size");
+            String[] toppings = request.getParameterValues("toppings");
+            String address = request.getParameter("address");
 
             System.out.println("crust = " + crust);
             System.out.println("sauce = " + sauce);
             System.out.println("size = " + size);
             System.out.println("size = " + address);
+
 
             for (String topping: toppings) {
                 System.out.println("topping = " + topping);
