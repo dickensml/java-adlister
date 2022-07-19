@@ -1,8 +1,7 @@
 package com.codeup.adlister.dao;
-
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
-
+import javax.servlet.jsp.jstl.core.Config;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,18 +12,17 @@ import java.util.List;
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
-    public MySQLAdsDao(Config config) {
-        try {
-            DriverManager.registerDriver(new Driver());
-            connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
-            );
-        } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
-        }
-    }
+//    public MySQLAdsDao(Config config) {
+//        try {
+//            DriverManager.registerDriver(new Driver());
+//            connection = DriverManager.getConnection(
+//                config.getUrl(),
+//                config.getUser(),
+//                config.getPassword());
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error connecting to the database!", e);
+//        }
+//    }
 
     @Override
     public List<Ad> all() {
