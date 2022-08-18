@@ -20,13 +20,14 @@ public class HelloWorldServlet extends HttpServlet {
         String name = request.getParameter("name");
         if (name != null) {
             out.println("<h2>Hello, " + name + "!</h2>");
-        } else{
-            out.println("<h2>Hello World!</h2>");
         }
+//        } else{
+//            out.println("<h2>Hello World!</h2>");
+//        }
         response.getWriter().println("<h2>Hello, World!</h2" +
                 ">");
 
-        response.getWriter().println("<h3>View Count: " + pageViews + "</h3>");
+        response.getWriter().println("<h3>Page Count: " + pageViews + "</h3>");
     }
 
 }
